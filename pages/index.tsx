@@ -2,8 +2,9 @@ import { ThemeProvider } from "@mui/material";
 import App from "./App";
 import { createTheme } from "@mui/material/styles";
 import { grey, yellow, red } from "@mui/material/colors";
+import { FC } from "react";
 
-export default function Home() {
+const Home: FC = () => {
 
   const theme = createTheme({
     palette: {
@@ -34,3 +35,5 @@ export default function Home() {
     </ThemeProvider>
   );
 }
+
+export default Home;
