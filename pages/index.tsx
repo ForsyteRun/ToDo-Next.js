@@ -5,7 +5,6 @@ import { grey, yellow, red } from "@mui/material/colors";
 import { FC } from "react";
 
 const Home: FC = () => {
-
   const theme = createTheme({
     palette: {
       primary: {
@@ -13,11 +12,11 @@ const Home: FC = () => {
       },
       secondary: {
         main: yellow[50],
-        contrastText: red[700], 
+        contrastText: red[700],
       },
       info: {
-        main: red[700]
-      }
+        main: red[700],
+      },
     },
     breakpoints: {
       values: {
@@ -27,13 +26,17 @@ const Home: FC = () => {
         lg: 1200,
         xl: 1536,
       },
-  }})
+    },
+    typography: {
+      fontFamily: "Xanh Mono",
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
   );
-}
+};
 
 export default Home;

@@ -10,7 +10,8 @@ const titlePoints = {
     xl: "6rem",
   },
   color: 'info.main',
-  marginBottom: '0.5rem'
+  marginBottom: '0.5rem',
+  
 };
 
 const conteiner = {

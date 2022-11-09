@@ -30,6 +30,20 @@ const Todo = () => {
     formikHelpers.resetForm();
   };
 
+  const doneTodo = (id: number) => {
+      const chackTodo: any = todo.map((el: FormDataType) => {
+        return el.id === id ? {...el, chacked: !el.chacked} : el
+      })
+      setTodo(chackTodo)
+  };
+
+  const deleteTodo = (id: number) => {
+    const delTodo = todo.filter((el: FormDataType) => {
+      return el.id !== id
+    })
+    setTodo(delTodo)
+  }
+
   return (
     <>
       <Formik
@@ -51,13 +65,10 @@ const Todo = () => {
           </Form>
         )}
       </Formik>
-      {
-        todo && 
-        todo.map((el:FormDataType) => (
-          <Answer el={el} key={el.id}/>
-        ))
-        
-      }
+      {todo &&
+        todo.map((el: FormDataType) => (
+          <Answer el={el} key={el.id} doneTodo={doneTodo} deleteTodo={deleteTodo} />
+        ))}
     </>
   );
 };
