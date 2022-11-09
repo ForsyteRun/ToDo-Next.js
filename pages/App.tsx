@@ -1,9 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import Todo from "./Todo";
 
-const fontSizePoints = {
+const titlePoints = {
   fontSize: {
-    xs: "4rem",
+    xs: "3rem",
     sm: "5rem",
     md: "6rem",
     lg: "6rem",
@@ -18,18 +18,17 @@ const conteiner = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  width: '80%'
 };
 
 const App = () => {
   return (
-    <Box height="50vh" sx={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+    <Box height="100vh" sx={{
+      margin: '0 auto',
+      width: '40%',
+      padding: '20px 0'
     }}>
       <Box sx={conteiner}>
-        <Typography variant="h1" component="div" sx={fontSizePoints}>
+        <Typography variant="h1" component="div" sx={titlePoints}>
           ToDo
         </Typography>
         <Todo />
