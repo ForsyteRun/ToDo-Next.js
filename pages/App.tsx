@@ -25,7 +25,8 @@ const App = () => {
   return (
     <Box height="100vh" sx={{
       margin: '0 auto',
-      width: '40%',
+      maxWidth: '550px',
+      minWidth: '320px',
       padding: '20px 0'
     }}>
       <Box sx={conteiner}>

@@ -12,7 +12,6 @@ import {
   ListItemText,
 } from "@mui/material";
 import { FormDataType } from "../types/type";
-import { DomainVerificationOutlined } from "@mui/icons-material";
 
 type PropsType = {
   el: FormDataType;
@@ -25,6 +24,8 @@ export const Answer: FC<PropsType> = ({ el, doneTodo, deleteTodo }) => {
   const chackTodoFn = {
     textDecoration: el.chacked ? 'line-through' : ''
   }
+
+  
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       <ListItem

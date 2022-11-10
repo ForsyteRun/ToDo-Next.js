@@ -3,6 +3,7 @@ import { Form, Formik, FormikHelpers } from "formik";
 import React, { useState } from "react";
 import { FormDataType } from "../types/type";
 import Answer from "./Answer";
+import InfoTodo from "./InfoTodo";
 
 const responsiveConteiner = {
   backgroundColor: "secondary.main",
@@ -69,6 +70,7 @@ const Todo = () => {
         todo.map((el: FormDataType) => (
           <Answer el={el} key={el.id} doneTodo={doneTodo} deleteTodo={deleteTodo} />
         ))}
+      <InfoTodo todo={todo}/>        
     </>
   );
 };
