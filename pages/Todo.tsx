@@ -17,7 +17,8 @@ type InitialValue = typeof initialValue;
 
 const Todo = () => {
   const [todo, setTodo] = useState<Array<FormDataType>>([]);
-
+  const [filtered, setFiltered] = useState<Array<FormDataType>>(todo);
+  
   const submitForm = (
     values: InitialValue,
     formikHelpers: FormikHelpers<InitialValue>
@@ -26,7 +27,7 @@ const Todo = () => {
       id: Math.random(),
       name: values.name,
       chacked: false,
-    };
+    }
     setTodo([...todo, formData]);
     formikHelpers.resetForm();
   };
@@ -43,6 +44,24 @@ const Todo = () => {
       return el.id !== id
     })
     setTodo(delTodo)
+  }
+
+  const filterTodo = (type: string) => {
+    switch (type) {
+      case "All":
+        setFiltered(todo)
+          break;
+      case "Active":
+        const filterTrue: Array<FormDataType> = [...todo].filter(el => el.chacked === true)
+        setFiltered(filterTrue)
+        break
+      case "Complited":
+        const filterFalse: Array<FormDataType> = [...todo].filter(el => el.chacked === false)
+        setFiltered(filterFalse)
+      break
+      default:
+        break
+    }
   }
 
   return (
@@ -66,11 +85,11 @@ const Todo = () => {
           </Form>
         )}
       </Formik>
-      {todo &&
-        todo.map((el: FormDataType) => (
+      { todo.filter().map((el: FormDataType) => (
           <Answer el={el} key={el.id} doneTodo={doneTodo} deleteTodo={deleteTodo} />
-        ))}
-      <InfoTodo todo={todo}/>        
+        ))
+      }
+      <InfoTodo todo={todo} filterTodo={filterTodo} />        
     </>
   );
 };

@@ -14,6 +14,7 @@ import { FormDataType } from "../types/type";
 
 type PropsType = {
   todo: Array<FormDataType>;
+  filterTodo: (type: string) => void
 };
 
 const paperStack = {
@@ -23,7 +24,17 @@ const paperStack = {
   alignItem: 'center'
 };
 
-const InfoTodo: FC<PropsType> = ({ todo }) => {
+const hoverButton = {
+  tr: {
+    border: "1px solid #fff",
+    '&:hover': {
+      border: "1px solid 	#d32f2f",
+    },
+    color: '	#000000'
+  }
+};
+
+const InfoTodo: FC<PropsType> = ({ todo, filterTodo }) => {
   return (
     <Box sx={{ width: "100%" }}>
       {todo.length > 0 && (
@@ -32,9 +43,9 @@ const InfoTodo: FC<PropsType> = ({ todo }) => {
           <Paper sx={paperStack}>
             <span>{todo.length} item left</span>
             <Stack display='inline-flex' direction='row' justifyContent='center' width='65%'>
-              <Button>All</Button>
-              <Button>Active</Button>
-              <Button>Complited</Button>
+              <Button sx={hoverButton.tr} onClick={() =>filterTodo('All')}>All</Button>
+              <Button sx={hoverButton.tr} onClick={() =>filterTodo('Active')}>Active</Button>
+              <Button sx={hoverButton.tr} onClick={() =>filterTodo('Complited')}>Complited</Button>
             </Stack>
           </Paper>
         </>
