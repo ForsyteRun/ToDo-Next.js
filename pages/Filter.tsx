@@ -15,29 +15,30 @@ import { FormDataType } from "../types/type";
 
 type PropsType = {
   el: FormDataType;
-  doneTodo: (id:number) => void
-  deleteTodo: (id:number) => void 
+  doneFilter: (id:number) => void
+  deleteFilter: (id:number) => void 
 };
 
-export const Answer: FC<PropsType> = ({ el, doneTodo, deleteTodo }) => {
+export const Filter: FC<PropsType> = ({ el, doneFilter, deleteFilter }) => {
  
   const chackTodoFn = {
     textDecoration: el.chacked ? 'line-through' : ''
   }
-  console.log('answer');
+console.log('filter');
+
   return (
 
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       <ListItem
         key={el.id}
         secondaryAction={
-          <IconButton edge="end" aria-label="comments" onClick={()=>deleteTodo(el.id)}>
+          <IconButton edge="end" aria-label="comments" onClick={()=>deleteFilter(el.id)}>
             <ClearIcon />
           </IconButton>
         }
         disablePadding
       >
-        <ListItemButton role={undefined} onClick={() => doneTodo(el.id)} dense>
+        <ListItemButton role={undefined} onClick={() => doneFilter(el.id)} dense>
           <ListItemIcon>
             <Checkbox
               checked={el.chacked ? true : false}
@@ -55,4 +56,4 @@ export const Answer: FC<PropsType> = ({ el, doneTodo, deleteTodo }) => {
   )
 }
 
-export default Answer;
+export default Filter;

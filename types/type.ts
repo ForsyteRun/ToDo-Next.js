@@ -3,3 +3,7 @@ export type FormDataType = {
   name: string;
   chacked: boolean;
 };
+
+export type FilterType = {
+  filter?: FormDataType
+}
